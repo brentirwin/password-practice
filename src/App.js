@@ -84,6 +84,8 @@ class App extends Component {
           id="password"
           value={this.state.password}
           onChange={e => this.handleChangePassword(e)}
+          autoCorrect="off"
+          autoCapitalize="off"
           ref={this.startingForm}
           />
         <input
@@ -92,6 +94,8 @@ class App extends Component {
           value={this.state.text}
           onChange={e => this.handleChangeText(e)}
           onKeyPress={e => this.handleEnter(e)}
+          autoCorrect="off"
+          autoCapitalize="off"
           />
         <p>Current streak: {this.state.streak}</p>
       </div>

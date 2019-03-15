@@ -26,11 +26,12 @@ h1 {
 input {
   margin: 10px;
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   border-width: 2px;
   border-color: black;
   border-style: solid;
   border-radius: 20px;
+  font-family: monospace;
 }
 
 #password {
@@ -43,6 +44,6 @@ input {
 
 @media only screen and (max-width: 425px) {
   input {
-    width: 80%;
+    max-width: 80%;
   }
 }
