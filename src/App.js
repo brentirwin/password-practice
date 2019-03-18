@@ -9,7 +9,8 @@ class App extends Component {
       text: '',
       correct: false,
       error: false,
-      streak: 0
+      streak: 0,
+      advanced: false
     }
 
     this.startingForm = React.createRef();
@@ -17,6 +18,7 @@ class App extends Component {
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
+    this.handleAdvanced = this.handleAdvanced.bind(this);
   }
 
   handleChangePassword = e => this.setState({ password: e.target.value });
@@ -46,6 +48,11 @@ class App extends Component {
       error: false
     });
   }
+
+  handleAdvanced = e => this.setState({
+    advanced: e.target.checked,
+    streak: 0
+  });
 
   componentDidMount() {
     this.startingForm.current.focus();
@@ -90,6 +97,7 @@ class App extends Component {
           />
         <input
           id="text"
+          type={this.state.advanced ? "password" : "text"}
           style={this.textBoxStyle()}
           value={this.state.text}
           onChange={e => this.handleChangeText(e)}
@@ -98,6 +106,15 @@ class App extends Component {
           autoCapitalize="off"
           />
         <p>Current streak: {this.state.streak}</p>
+        <label>
+          <input
+            name="advanced"
+            type="checkbox"
+            checked={this.state.advanced}
+            onChange={this.handleAdvanced}
+            />
+          Advanced mode
+        </label>
       </div>
     );
   }
