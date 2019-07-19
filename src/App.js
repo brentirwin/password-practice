@@ -21,7 +21,10 @@ class App extends Component {
     this.handleAdvanced = this.handleAdvanced.bind(this);
   }
 
-  handleChangePassword = e => this.setState({ password: e.target.value });
+  handleChangePassword = e => this.setState({
+    password: e.target.value,
+    streak: 0
+  });
 
   handleChangeText = e => {
     const text = e.target.value;
